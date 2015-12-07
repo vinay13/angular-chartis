@@ -1,0 +1,52 @@
+
+<html ng-app="chartis"> 
+<head>
+<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+
+<script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/Chart.js/Chart.min.js"></script>
+  <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+
+  
+</script>
+
+
+
+</head>
+
+
+<body ng-controller="LineCtrl">
+
+<h1>my charts</h1>
+<div ng-app="chartis">
+<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" 
+    chart-legend="true" chart-series="series" chart-click="onClick"></canvas> 
+
+</div>
+
+
+
+<script type="text/javascript">
+  
+  angular.module("chartis", ["chart.js"]).controller("LineCtrl", function ($scope) {
+
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+});
+</script>
+
+
+
+
+</body>
+
+
+
+</html>
